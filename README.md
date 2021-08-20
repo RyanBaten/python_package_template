@@ -1,1 +1,1 @@
-# python_library_template
+# python_package_template
