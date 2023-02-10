@@ -1,8 +1,10 @@
 .PHONY: help format lint test build clean
 
-CODE_DIRS := src test
+SOURCE_DIR := src
+TEST_DIR := test
+CODE_DIRS := $(SOURCE_DIR) $(TEST_DIR)
 BUILD_DIRS := dist
-PYTHON := python
+PYTHON := python3
 
 #HELP help : prints out information about available makefile commands
 help:
@@ -14,11 +16,11 @@ format:
 
 #HELP lint : runs automated code style checks
 lint:
-	flake8 $(CODE_DIRS)
+	ruff $(CODE_DIRS)
 
 #HELP test : runs developer written code tests
 test:
-	$(PYTHON) -m pytest $(CODE_DIRS)
+	$(PYTHON) -m pytest $(TEST_DIR)
 
 #HELP build : packages up repository code
 build:
